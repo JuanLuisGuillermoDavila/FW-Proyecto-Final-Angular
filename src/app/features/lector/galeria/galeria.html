@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="card card-outline card-primary shadow-sm">
+    <div class="card-header">
+      <h3 class="card-title font-weight-bold">
+        <i class="fas fa-book-open mr-2" style="color: #6C1D45;"></i>
+        Galería de Libros
+      </h3>
+    </div>
+    <!-- /.card-header -->
+
+    <div class="card-body">
+      <div class="row">
+        @for (libro of listaLibros(); track libro.id ?? $index) {
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex align-items-stretch">
+            <div class="card w-100 shadow-sm border position-relative mb-0"
+                 style="cursor: pointer;"
+                 [routerLink]="['/burritolector/galeria', libro.id]">
+
+              <!-- Ribbon de categoría/género -->
+              @if (libro.genero) {
+                <div class="ribbon-wrapper ribbon-lg">
+                  <div class="ribbon text-white font-weight-bold" style="background-color: #6C1D45;">
+                    {{ libro.genero }}
+                  </div>
+                </div>
+              }
+
+              <!-- Portada del libro -->
+              <div class="bg-light d-flex justify-content-center align-items-center overflow-hidden border-bottom"
+                   style="height: 210px;">
+                @if (libro.imagen) {
+                  <img [src]="libro.imagen"
+                       [alt]="libro.titulo"
+                       class="w-100 h-100"
+                       style="object-fit: cover;">
+                } @else {
+                  <i class="fas fa-book fa-3x text-secondary"></i>
+                }
+              </div>
+
+              <!-- Información del libro -->
+              <div class="card-body d-flex flex-column justify-content-between p-3">
+                <div>
+                  <h5 class="card-title font-weight-bold text-dark mb-1" style="font-size: 1rem;">
+                    Reseña de Libro: {{ libro.titulo }} de {{ libro.autor }}
+                  </h5>
+                </div>
+
+                <div class="mt-3 pt-2 border-top d-flex justify-content-between align-items-center small">
+                  <span class="font-weight-bold" style="color: #6C1D45;">Ver reseña</span>
+                  <i class="fas fa-arrow-right" style="color: #6C1D45;"></i>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        } @empty {
+          <div class="col-12 text-center text-muted py-5">
+            <i class="fas fa-book fa-2x mb-2 d-block"></i>
+            No hay libros disponibles en la galería por el momento.
+          </div>
+        }
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+</div>

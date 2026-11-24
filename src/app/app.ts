@@ -1,12 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ServerStatus } from './core/services/server-status';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  imports: [RouterOutlet],
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('burrito-lector-front');
+export class App implements OnInit {
+  serverStatus = inject(ServerStatus);
+
+  ngOnInit() {
+    this.serverStatus.verificarServidor();
+  }
 }

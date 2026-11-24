@@ -1,0 +1,102 @@
+<div class="card card-outline card-primary shadow-sm">
+  <div class="card-header">
+    <h3 class="card-title font-weight-bold mt-1">
+      <i class="fas fa-heart mr-2" style="color: #6C1D45;"></i>
+      Afinidad con otros lectores
+    </h3>
+
+    <div class="card-tools">
+      <div class="input-group input-group-sm" style="width: 250px;">
+        <input type="search"
+               class="form-control"
+               placeholder="Buscar título o lector..."
+               [value]="busqueda()"
+               (input)="busqueda.set($any($event.target).value)">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.card-header -->
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th style="cursor: pointer;" (click)="ordenarPor('titulo')">
+              Título
+              <i class="fas float-right mt-1"
+                 [class.fa-sort]="columnaOrden() !== 'titulo'"
+                 [class.fa-sort-up]="columnaOrden() === 'titulo' && direccionAsc()"
+                 [class.fa-sort-down]="columnaOrden() === 'titulo' && !direccionAsc()"></i>
+            </th>
+            <th style="cursor: pointer;" (click)="ordenarPor('lector')">
+              Lector
+              <i class="fas float-right mt-1"
+                 [class.fa-sort]="columnaOrden() !== 'lector'"
+                 [class.fa-sort-up]="columnaOrden() === 'lector' && direccionAsc()"
+                 [class.fa-sort-down]="columnaOrden() === 'lector' && !direccionAsc()"></i>
+            </th>
+            <th style="cursor: pointer;" (click)="ordenarPor('suRating')">
+              Su rating
+              <i class="fas float-right mt-1"
+                 [class.fa-sort]="columnaOrden() !== 'suRating'"
+                 [class.fa-sort-up]="columnaOrden() === 'suRating' && direccionAsc()"
+                 [class.fa-sort-down]="columnaOrden() === 'suRating' && !direccionAsc()"></i>
+            </th>
+            <th style="cursor: pointer;" (click)="ordenarPor('miRating')">
+              Mi rating
+              <i class="fas float-right mt-1"
+                 [class.fa-sort]="columnaOrden() !== 'miRating'"
+                 [class.fa-sort-up]="columnaOrden() === 'miRating' && direccionAsc()"
+                 [class.fa-sort-down]="columnaOrden() === 'miRating' && !direccionAsc()"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of usuariosMuyAfines(); track $index) {
+            <tr>
+              <td>{{ item.titulo }}</td>
+              <td>{{ item.lector }}</td>
+              <td>
+                @for (s of estrellas; track s) {
+                  <i class="fa-star"
+                     [class.fas]="s <= item.suRating"
+                     [class.far]="s > item.suRating"
+                     [class.text-warning]="s <= item.suRating"></i>
+                }
+              </td>
+              <td>
+                @for (s of estrellas; track s) {
+                  <i class="fa-star"
+                     [class.fas]="s <= item.miRating"
+                     [class.far]="s > item.miRating"
+                     [class.text-warning]="s <= item.miRating"></i>
+                }
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="4" class="text-center text-muted py-3">
+                Aún no hay usuarios muy afines registrados.
+              </td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Título</th>
+            <th>Lector</th>
+            <th>Su rating</th>
+            <th>Mi rating</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <!-- /.card-body -->
+</div>

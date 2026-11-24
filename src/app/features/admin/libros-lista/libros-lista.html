@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h3 class="fw-normal mb-0">Libros</h3>
+  <a routerLink="/burritoadministrador/libros/agregar" class="btn btn-success px-4">Agregar</a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Titulo</th>
+        <th>Autor</th>
+        <th style="width: 210px;">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (libro of libros(); track libro.id) {
+        <tr>
+          <td>{{ libro.titulo }}</td>
+          <td>{{ libro.autor }}</td>
+          <td>
+            <div class="d-flex gap-2">
+              <a [routerLink]="['/burritoadministrador/libros/editar', libro.id]" class="btn btn-primary btn-sm px-3">Editar</a>
+              <a [routerLink]="['/burritoadministrador/libros/eliminar', libro.id]" class="btn btn-danger btn-sm px-3">Eliminar</a>
+            </div>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="3" class="text-center text-muted py-3">No hay libros registrados.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

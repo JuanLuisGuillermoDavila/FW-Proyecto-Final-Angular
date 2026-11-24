@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --ipn-guinda: #6C1D45;
+  --ipn-guinda-oscuro: #4E1230;
+  --ipn-guinda-claro: #8C265A;
+  --ipn-guinda-suave: rgba(108, 29, 69, 0.12);
+  --ipn-blanco: #FFFFFF;
+  --ipn-gris-fondo: #F4F6F9;
+  --ipn-gris-texto: #343A40;
+}
+
+/* Botones primarios IPN */
+.btn-primary {
+  background-color: var(--ipn-guinda) !important;
+  border-color: var(--ipn-guinda) !important;
+  color: var(--ipn-blanco) !important;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--ipn-guinda-oscuro) !important;
+  border-color: var(--ipn-guinda-oscuro) !important;
+  box-shadow: 0 4px 12px rgba(108, 29, 69, 0.3) !important;
+}
+
+.btn-primary:disabled {
+  background-color: var(--ipn-guinda) !important;
+  border-color: var(--ipn-guinda) !important;
+  opacity: 0.6;
+}
+
+/* Tarjetas, fondos y textos primarios */
+.card-primary.card-outline {
+  border-top: 4px solid var(--ipn-guinda) !important;
+}
+
+.bg-primary {
+  background-color: var(--ipn-guinda) !important;
+}
+
+.text-primary {
+  color: var(--ipn-guinda) !important;
+}
+
+/* Enlaces e inputs con foco */
+a {
+  color: var(--ipn-guinda);
+}
+
+a:hover {
+  color: var(--ipn-guinda-oscuro);
+}
+
+.form-control:focus {
+  border-color: var(--ipn-guinda) !important;
+  box-shadow: 0 0 0 0.2rem var(--ipn-guinda-suave) !important;
+}
+
+/* Sidebar y Navbar de AdminLTE (para los layouts de Lector y Admin) */
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+  background-color: var(--ipn-guinda) !important;
+  color: var(--ipn-blanco) !important;
+}
+
+.main-sidebar.sidebar-ipn {
+  background-color: var(--ipn-guinda-oscuro) !important;
+}
+
+:root {
+  --ipn-guinda: #6C1D45;
+  --ipn-guinda-oscuro: #4E1230;
+  --ipn-guinda-suave: rgba(108, 29, 69, 0.15);
+}
+
+.card-primary.card-outline {
+  border-top: 3px solid var(--ipn-guinda) !important;
+}
+
+.btn-primary {
+  background-color: var(--ipn-guinda) !important;
+  border-color: var(--ipn-guinda) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--ipn-guinda-oscuro) !important;
+  border-color: var(--ipn-guinda-oscuro) !important;
+}
+
+a {
+  color: var(--ipn-guinda);
+}
+
+a:hover {
+  color: var(--ipn-guinda-oscuro);
+}
+
+.form-control:focus {
+  border-color: var(--ipn-guinda) !important;
+  box-shadow: 0 0 0 0.2rem var(--ipn-guinda-suave) !important;
+}

@@ -1,0 +1,32 @@
+html,
+body,
+app-root {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+}
+
+.wrapper {
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Barra lateral fija de borde a borde como en AdminLTE 3 */
+.main-sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  margin-top: 0 !important;
+  overflow-y: auto;
+  z-index: 1038;
+}
+
+/* Contenido principal a pantalla completa con el gris de AdminLTE */
+.content-wrapper {
+  min-height: 100vh !important;
+  background-color: #f4f6f9 !important;
+}

@@ -1,0 +1,39 @@
+<h3 class="fw-normal mb-4">Libros/eliminar</h3>
+
+@if (libro(); as item) {
+  <div class="row g-4">
+    <!-- Columna Izquierda -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <input type="text" class="form-control bg-light" [value]="item.titulo" readonly>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control bg-light" [value]="item.editorial" readonly>
+      </div>
+      <div class="mb-3">
+        <textarea class="form-control bg-light" rows="7" readonly>{{ item.sinopsis }}</textarea>
+      </div>
+    </div>
+
+    <!-- Columna Derecha -->
+    <div class="col-md-6">
+      <div class="mb-3">
+        <input type="text" class="form-control bg-light" [value]="item.autor" readonly>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control bg-light" [value]="item.genero" readonly>
+      </div>
+
+      @if (item.imagen) {
+        <div class="mb-3">
+          <img [src]="item.imagen" [alt]="item.titulo" class="img-thumbnail" style="max-height: 150px;">
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="d-flex gap-3 mt-3">
+    <button type="button" class="btn btn-danger px-4" (click)="confirmarEliminacion()">Eliminar</button>
+    <a routerLink="/burritoadministrador/libros" class="btn btn-secondary px-4">Cancelar</a>
+  </div>
+}
