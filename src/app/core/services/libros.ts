@@ -39,8 +39,14 @@ export class Libros {
 
   // --- DASHBOARD ADMIN ---
   getDashboardStats() {
-    return this.http.get<{ lectores: number; libros: number; promedioRating: number }>(`${this.apiUrl}/libros/dash`);
-  }
+  return this.http.get<any>(`${this.apiUrl}/libros/dash`).pipe(
+    map((res) => ({
+      lectores: res.totalLectores,
+      libros: res.totalLibros,
+      promedioRating: res.promedioRating
+    }))
+  );
+}
 
   // --- VALORACIONES Y AFINIDAD ---
   calificarLibro(userId: number, libroId: number, rating: number) {
@@ -57,3 +63,4 @@ getAfinidades(userId: number) {
     );
   }
 }
+
