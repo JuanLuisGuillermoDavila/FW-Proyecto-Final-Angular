@@ -1,25 +1,44 @@
 <!-- dash.html -->
-<h3 class="mb-4 fw-normal">Dash</h3>
+<div class="card card-outline card-primary shadow-sm">
+<div class="card-body">
 
-<div class="row g-4 text-center mt-2">
+    <h3 class="h4 font-weight-bold mb-4">
+      <i class="fas fa-chart-line mr-2" style="color: #6C1D45;"></i>
+      DASH
+    </h3>
+  <div class="row text-center mt-2">
+    <div class="col-md-4">
+      <div class="card card-outline card-secondary h-100">
+        <div class="card-header">
+          <h3 class="card-title font-weight-bold mt-1">Lectores</h3>
+        </div>
+        <div class="card-body">
+          <div class="display-4 font-weight-normal">{{ stats().lectores }}</div>
+        </div>
+      </div>
+  </div>
+
   <div class="col-md-4">
-    <div class="p-4">
-      <div class="display-4 fw-normal mb-2">{{ stats().lectores }}</div>
-      <div class="fs-5 text-muted">Lectores</div>
+    <div class="card card-outline card-secondary h-100">
+      <div class="card-header">
+        <h3 class="card-title font-weight-bold mt-1">Libros</h3>
+      </div>
+      <div class="card-body">
+        <div class="display-4 font-weight-normal">{{ stats().libros }}</div>
+      </div>
     </div>
   </div>
 
   <div class="col-md-4">
-    <div class="p-4">
-      <div class="display-4 fw-normal mb-2">{{ stats().libros }}</div>
-      <div class="fs-5 text-muted">Libros</div>
+    <div class="card card-outline card-secondary h-100">
+      <div class="card-header">
+        <h3 class="card-title font-weight-bold mt-1">Promedio de rating</h3>
+      </div>
+      <div class="card-body">
+          <div class="display-4 font-weight-normal">{{ stats().promedioRating }}</div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="col-md-4">
-    <div class="p-4">
-      <div class="display-4 fw-normal mb-2">{{ stats().promedioRating }}</div>
-      <div class="fs-5 text-muted">Promedio de rating</div>
-    </div>
-  </div>
+</div>
 </div>
